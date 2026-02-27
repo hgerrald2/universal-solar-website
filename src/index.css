@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
+}
+
+/* ── Touch target improvements (mobile accessibility) ── */
+@media (max-width: 768px) {
+  a, button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Pill CTA buttons get extra padding on mobile */
+  a[href^="tel:"], a[href^="https://wa.me"] {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+
+/* ── Scroll-reveal animations ── */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger children inside a reveal parent */
+.reveal-section:nth-child(2) { transition-delay: 0.1s; }
+.reveal-section:nth-child(3) { transition-delay: 0.2s; }
+.reveal-section:nth-child(4) { transition-delay: 0.3s; }
