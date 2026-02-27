@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import HeroScene from './HeroScene'
+import PuertoRicoMap from './PuertoRicoMap'
 
 // ─── Design tokens (sister brand of universalsolar.com) ──────────────────────
 // Primary blue:   #1F2AA8  (hero, top bar, middle feature card, hero CTAs)
@@ -442,13 +444,14 @@ function Hero() {
     <section
       className="relative min-h-screen flex flex-col items-center justify-center text-white px-4 overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/home01.jpeg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        background: 'linear-gradient(180deg, #1a2a1a 0%, #0d1f0d 50%, #1F2AA8 100%)',
       }}
     >
-      {/* Blue tinted dark overlay — matches universalsolar.com hero */}
-      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(31,42,168,0.72)' }} />
+      {/* Three.js canvas background */}
+      <HeroScene />
+
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }} />
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto pt-28">
@@ -513,10 +516,13 @@ function Hero() {
             Cotización por WhatsApp
           </a>
         </div>
+
+        {/* Interactive Puerto Rico Map */}
+        <PuertoRicoMap />
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
         <div className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent" />
       </div>
     </section>
