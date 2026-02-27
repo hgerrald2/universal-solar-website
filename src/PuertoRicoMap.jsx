@@ -29,7 +29,7 @@ export default function PuertoRicoMap() {
   const [active, setActive] = useState(null)
 
   return (
-    <div className="relative w-full max-w-xl mx-auto mt-8 mb-4">
+    <div className="relative w-full max-w-xl mx-auto">
       {/* Tooltip — positioned via SVG-relative percentages */}
       {active !== null && (
         <div
@@ -110,7 +110,7 @@ export default function PuertoRicoMap() {
       </svg>
 
       <p className="text-center text-xs mt-2" style={{ color: 'rgba(255,255,255,0.45)' }}>
-        Servimos toda la isla — toque un punto para ver el municipio
+        Servicio Calidad Garantía
       </p>
     </div>
   )

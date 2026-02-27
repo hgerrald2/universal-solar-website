@@ -442,9 +442,10 @@ function Navbar({ scrolled, darkMode, toggleDarkMode }) {
 function Hero() {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center text-white px-4 overflow-hidden"
+      className="relative flex items-center text-white overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #1a2a1a 0%, #0d1f0d 50%, #1F2AA8 100%)',
+        minHeight: '75vh',
       }}
     >
       {/* Three.js canvas background */}
@@ -453,77 +454,82 @@ function Hero() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }} />
 
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto pt-28">
-        {/* Eyebrow */}
-        <p
-          className="text-xs sm:text-sm font-bold tracking-[0.35em] uppercase mb-6"
-          style={{ color: '#FFCF33' }}
-        >
-          60 Años Sirviendo a Puerto Rico
-        </p>
-
-        {/* H1 */}
-        <h1 className="font-bold leading-tight mb-6">
-          <span className="block text-4xl sm:text-6xl lg:text-7xl text-white mb-1">
-            Bienvenidos a
-          </span>
-          <span className="block text-4xl sm:text-6xl lg:text-7xl text-white">
-            Universal Solar PR
-          </span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: 'rgba(255,255,255,0.70)' }}>
-          Fabricamos y distribuimos calentadores solares, tanques de agua y más aquí en Puerto Rico.
-        </p>
-
-        {/* Two CTA buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <a
-            href="#productos"
-            className="inline-flex items-center justify-center rounded-full font-semibold text-white px-8 py-3.5 text-base w-full sm:w-auto transition-colors"
-            style={{ backgroundColor: '#1F2AA8' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#0d1150')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1F2AA8')}
-          >
-            Ver Productos
-          </a>
-          <a
-            href={PHONE_HREF}
-            className="inline-flex items-center justify-center rounded-full font-semibold text-white border-2 border-white px-8 py-3.5 text-base w-full sm:w-auto transition-colors hover:bg-white/10"
-          >
-            Contáctenos
-          </a>
-        </div>
-
-        {/* Text links */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href={PHONE_HREF}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-75"
+      {/* Two-column content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-32 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        {/* Left — Text */}
+        <div>
+          {/* Eyebrow */}
+          <p
+            className="text-xs sm:text-sm font-bold tracking-[0.35em] uppercase mb-5"
             style={{ color: '#FFCF33' }}
           >
-            Solicitar Cotización
-            <ArrowRightIcon className="w-4 h-4" />
-          </a>
-          <a
-            href={WHATSAPP}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-75"
-            style={{ color: '#25D366' }}
-          >
-            <WhatsAppIcon className="w-4 h-4" />
-            Cotización por WhatsApp
-          </a>
+            60 Años Sirviendo a Puerto Rico
+          </p>
+
+          {/* H1 */}
+          <h1 className="font-bold leading-tight mb-5">
+            <span className="block text-3xl sm:text-5xl lg:text-6xl text-white mb-1">
+              Bienvenidos a
+            </span>
+            <span className="block text-3xl sm:text-5xl lg:text-6xl text-white">
+              Universal Solar PR
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-base sm:text-lg max-w-lg mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.70)' }}>
+            Fabricamos y distribuimos calentadores solares, tanques de agua y más aquí en Puerto Rico.
+          </p>
+
+          {/* Two CTA buttons */}
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
+            <a
+              href="#productos"
+              className="inline-flex items-center justify-center rounded-full font-semibold text-white px-8 py-3.5 text-base w-full sm:w-auto transition-colors"
+              style={{ backgroundColor: '#1F2AA8' }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#0d1150')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1F2AA8')}
+            >
+              Ver Productos
+            </a>
+            <a
+              href={PHONE_HREF}
+              className="inline-flex items-center justify-center rounded-full font-semibold text-white border-2 border-white px-8 py-3.5 text-base w-full sm:w-auto transition-colors hover:bg-white/10"
+            >
+              Contáctenos
+            </a>
+          </div>
+
+          {/* Text links */}
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <a
+              href={PHONE_HREF}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-75"
+              style={{ color: '#FFCF33' }}
+            >
+              Solicitar Cotización
+              <ArrowRightIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={WHATSAPP}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-75"
+              style={{ color: '#25D366' }}
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+              Cotización por WhatsApp
+            </a>
+          </div>
         </div>
 
-        {/* Interactive Puerto Rico Map */}
-        <PuertoRicoMap />
+        {/* Right — Puerto Rico Map */}
+        <div className="flex items-center justify-center">
+          <PuertoRicoMap />
+        </div>
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
-        <div className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+        <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent" />
       </div>
     </section>
   )
