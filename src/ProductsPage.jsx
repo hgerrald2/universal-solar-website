@@ -567,7 +567,7 @@ function Hero() {
               Ver Productos
             </a>
             <a
-              href={PHONE_HREF}
+              href="#contacto"
               className="inline-flex items-center justify-center rounded-full font-semibold text-white border-2 border-white px-8 py-3.5 text-base w-full sm:w-auto transition-colors hover:bg-white/10"
             >
               Contáctenos
@@ -577,7 +577,7 @@ function Hero() {
           {/* Text links */}
           <div className="flex flex-col sm:flex-row items-start gap-4">
             <a
-              href={PHONE_HREF}
+              href="#contacto"
               className="inline-flex items-center gap-1.5 text-sm font-semibold transition-opacity hover:opacity-75"
               style={{ color: '#FFCF33' }}
             >
@@ -609,61 +609,14 @@ function Hero() {
 
 // ─── 4. FeatureStrip ─────────────────────────────────────────────────────────
 function FeatureStrip() {
-  // Layout matches universalsolar.com exactly: YELLOW | BLUE | YELLOW
-  const features = [
-    {
-      icon: <ShieldIcon className="w-7 h-7" />,
-      title: 'Garantía Incluída',
-      desc: 'Tu tranquilidad es nuestra prioridad. Garantía real y productos confiables, hechos para durar.',
-      variant: 'green',
-    },
-    {
-      icon: <FlagIcon className="w-7 h-7" />,
-      title: 'Hecho 100% en Puerto Rico',
-      desc: 'Cada producto refleja nuestro compromiso con la excelencia. Manufacturamos con materiales de la más alta calidad.',
-      variant: 'green',
-    },
-    {
-      icon: <ChatIcon className="w-7 h-7" />,
-      title: 'Servicio al Cliente Confiable',
-      desc: 'Brindamos un servicio atento y confiable luego de la venta, disponible cuando más lo necesites.',
-      variant: 'green',
-    },
-  ]
-
-  const cardBg   = { yellow: '#FFCF33', blue: '#1F2AA8', green: '#4CAF50', white: '#ffffff' }
-  const iconBg   = { yellow: '#1a2a1a', blue: '#ffffff',  green: '#ffffff', white: '#4CAF50' }
-  const iconClr  = { yellow: '#ffffff',  blue: '#1F2AA8', green: '#4CAF50', white: '#ffffff'  }
-  const titleClr = { yellow: '#1a2a1a', blue: '#ffffff',  green: '#ffffff', white: '#1a2a1a' }
-  const descClr  = { yellow: '#1a2a1a', blue: 'rgba(255,255,255,0.85)', green: 'rgba(255,255,255,0.85)', white: '#555555' }
-
   return (
     <section className="bg-white py-16 px-4">
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {features.map((f) => (
-          <div
-            key={f.title}
-            className="rounded-2xl p-8 text-center"
-            style={{
-              backgroundColor: cardBg[f.variant],
-              border: f.variant === 'white' ? '1px solid #e5e7eb' : 'none',
-            }}
-          >
-            {/* Icon circle */}
-            <div
-              className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5"
-              style={{ backgroundColor: iconBg[f.variant], color: iconClr[f.variant] }}
-            >
-              {f.icon}
-            </div>
-            <h3 className="font-bold text-lg mb-3" style={{ color: titleClr[f.variant] }}>
-              {f.title}
-            </h3>
-            <p className="text-sm leading-relaxed" style={{ color: descClr[f.variant] }}>
-              {f.desc}
-            </p>
-          </div>
-        ))}
+      <div className="max-w-3xl mx-auto flex justify-center">
+        <img
+          src="/under_hero.png"
+          alt="Garantía Incluida, Hecho 100% en Puerto Rico, Servicio al Cliente Confiable"
+          className="w-full h-auto"
+        />
       </div>
     </section>
   )
@@ -1032,7 +985,7 @@ function Footer() {
                 { label: 'Productos', href: '#productos' },
                 { label: 'Certificaciones', href: '#certificaciones' },
                 { label: 'Áreas de Servicio', href: '#servicios' },
-                { label: 'Contacto', href: PHONE_HREF },
+                { label: 'Contacto', href: '#contacto' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
@@ -1082,7 +1035,6 @@ function Footer() {
           <p>© 2025 Universal Solar PR · Todos los derechos reservados · Fabricamos en Puerto Rico desde 1965 🇵🇷</p>
           <div className="flex items-center gap-4">
             <a href="/about" className="transition-colors hover:text-white">About</a>
-            <a href="/privacy-policy" className="transition-colors hover:text-white">Privacy Policy</a>
             <a href="/sitemap" className="transition-colors hover:text-white">Sitemap</a>
           </div>
         </div>
@@ -1341,6 +1293,24 @@ function TestimonialsSection({ dm = {} }) {
 
 // ─── 14. Contact Form ─────────────────────────────────────────────────────────
 function ContactForm({ dm = {} }) {
+  const [nombre, setNombre] = React.useState('')
+  const [telefono, setTelefono] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const [mensaje, setMensaje] = React.useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const lines = [
+      `Hola, quiero cotización.`,
+      `Nombre: ${nombre}`,
+      `Teléfono: ${telefono}`,
+      email ? `Email: ${email}` : '',
+      mensaje ? `Mensaje: ${mensaje}` : '',
+    ].filter(Boolean).join('\n')
+    const url = `https://wa.me/17873105555?text=${encodeURIComponent(lines)}`
+    window.open(url, '_blank')
+  }
+
   return (
     <section id="contacto" className="py-16 px-4" style={{ backgroundColor: dm.bgSubtle || '#f9f9f9' }}>
       <div className="max-w-2xl mx-auto">
@@ -1357,7 +1327,7 @@ function ContactForm({ dm = {} }) {
         </div>
         <form
           className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 space-y-5"
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
@@ -1367,6 +1337,8 @@ function ContactForm({ dm = {} }) {
               <input
                 type="text"
                 required
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
                 placeholder="Tu nombre completo"
                 className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none transition-colors"
                 onFocus={(e) => (e.currentTarget.style.borderColor = '#1F2AA8')}
@@ -1380,6 +1352,8 @@ function ContactForm({ dm = {} }) {
               <input
                 type="tel"
                 required
+                value={telefono}
+                onChange={(e) => setTelefono(e.target.value)}
                 placeholder="787-000-0000"
                 className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none transition-colors"
                 onFocus={(e) => (e.currentTarget.style.borderColor = '#1F2AA8')}
@@ -1393,6 +1367,8 @@ function ContactForm({ dm = {} }) {
             </label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="tu@email.com"
               className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none transition-colors"
               onFocus={(e) => (e.currentTarget.style.borderColor = '#1F2AA8')}
@@ -1405,35 +1381,21 @@ function ContactForm({ dm = {} }) {
             </label>
             <textarea
               rows={4}
+              value={mensaje}
+              onChange={(e) => setMensaje(e.target.value)}
               placeholder="En que producto estas interesado? Tienes alguna pregunta?"
               className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none transition-colors resize-none"
               onFocus={(e) => (e.currentTarget.style.borderColor = '#1F2AA8')}
               onBlur={(e) => (e.currentTarget.style.borderColor = '#e5e7eb')}
             />
           </div>
-          <div className="flex items-start gap-3">
-            <input type="checkbox" required id="privacy" className="mt-0.5 w-4 h-4 flex-shrink-0 accent-[#1F2AA8]" />
-            <label htmlFor="privacy" className="text-xs leading-relaxed" style={{ color: '#555555' }}>
-              He leído y acepto la{' '}
-              <a href="/privacy-policy" className="underline" style={{ color: '#1F2AA8' }}>
-                Privacy Policy
-              </a>
-              *
-            </label>
-          </div>
           <button
             type="submit"
-            className="w-full rounded-full font-semibold text-white py-4 text-base transition-opacity hover:opacity-90"
-            style={{ backgroundColor: '#1F2AA8' }}
+            className="w-full rounded-full font-semibold text-white py-4 text-base transition-opacity hover:opacity-90 inline-flex items-center justify-center gap-2"
+            style={{ backgroundColor: '#25D366' }}
           >
-            Enviar Mensaje
+            <WhatsAppIcon className="w-5 h-5" /> Enviar por WhatsApp
           </button>
-          <p className="text-center text-xs text-gray-400">
-            También puedes escribirnos directamente por{' '}
-            <a href={WHATSAPP} className="font-semibold" style={{ color: '#25D366' }}>
-              WhatsApp
-            </a>
-          </p>
         </form>
       </div>
     </section>
