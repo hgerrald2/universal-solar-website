@@ -109,7 +109,7 @@ export default function PuertoRicoMap() {
         ))}
       </svg>
 
-      <p className="text-center text-xs mt-2" style={{ color: 'rgba(255,255,255,0.45)' }}>
+      <p className="text-center text-base mt-2" style={{ color: 'rgba(96, 165, 250, 0.7)', wordSpacing: '0.4em' }}>
         Servicio Calidad Garantía
       </p>
     </div>
