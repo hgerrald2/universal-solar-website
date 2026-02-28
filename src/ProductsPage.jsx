@@ -15,8 +15,8 @@ import PuertoRicoMap from './PuertoRicoMap'
 
 const PHONE = '787-310-5555'
 const PHONE_HREF = 'tel:7873105555'
-const EMAIL = 'info@universalsolarpr.net'
-const WHATSAPP = 'https://wa.me/17873105555?text=Hola%20quiero%20cotizaci%C3%B3n%20en%20Puerto%20Rico.%20Mi%20pueblo%20es%3A%20____'
+const EMAIL = 'rcuniversalsolar@yahoo.com'
+const WHATSAPP = 'https://wa.me/17873105555?text=Hola%20quiero%20cotizaci%C3%B3n%20en%20Puerto%20Rico.%20Mi%20pueblo%20es%3A%20'
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
 const PhoneIcon = ({ className = 'w-5 h-5' }) => (
@@ -41,6 +41,12 @@ const FacebookIcon = ({ className = 'w-4 h-4' }) => (
 const InstagramIcon = ({ className = 'w-4 h-4' }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+  </svg>
+)
+
+const YouTubeIcon = ({ className = 'w-4 h-4' }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
   </svg>
 )
 
@@ -258,7 +264,7 @@ const MUNICIPIOS = [
 // ─── 1. TopBar ────────────────────────────────────────────────────────────────
 function TopBar() {
   return (
-    <div style={{ backgroundColor: '#1F2AA8' }} className="py-2 px-4 text-white text-xs">
+    <div style={{ backgroundColor: '#4CAF50' }} className="py-2 px-4 text-white text-xs">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-5">
           <a
@@ -278,7 +284,7 @@ function TopBar() {
         </div>
         <div className="flex items-center gap-3">
           <a
-            href="https://www.facebook.com/universalsolarpr.net"
+            href="https://www.facebook.com/UniversalSolarProductsPR/about/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -287,13 +293,22 @@ function TopBar() {
             <FacebookIcon className="w-3.5 h-3.5" />
           </a>
           <a
-            href="https://instagram.com/universalsolarpr"
+            href="https://www.instagram.com/richard_colonpr/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
             className="transition-colors hover:text-[#FFCF33]"
           >
             <InstagramIcon className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href="https://www.youtube.com/@RichardColon---"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+            className="transition-colors hover:text-[#FFCF33]"
+          >
+            <YouTubeIcon className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>
@@ -304,9 +319,20 @@ function TopBar() {
 // ─── 2. Navbar ────────────────────────────────────────────────────────────────
 const NAV_LINKS = [
   { label: 'Inicio', href: '/' },
-  { label: 'Productos', href: '#productos' },
-  { label: 'Baterías Yeti', href: '#productos' },
-  { label: 'Equipo Comercial', href: '#productos' },
+  {
+    label: 'Productos',
+    href: '#productos',
+    children: [
+      { label: 'Calentador Solar', href: '#productos' },
+      { label: 'Tanques de Agua', href: '#productos' },
+      { label: 'Ósmosis Inversa', href: '#productos' },
+      { label: 'CleanStart (Nuevo)', href: '#productos' },
+      { label: 'Purificador de Aire', href: '#productos' },
+      { label: 'Planta Fotovoltaica', href: '#productos' },
+      { label: 'Baterías Portátiles', href: '#productos' },
+      { label: 'Equipo Comercial', href: '#productos' },
+    ],
+  },
   { label: 'Bonos', href: '#bonos' },
   { label: 'Contáctenos', href: '#contacto' },
 ]
@@ -328,11 +354,29 @@ function Navbar({ scrolled, darkMode, toggleDarkMode }) {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((l) => (
-              <a key={l.label} href={l.href} className="text-sm font-medium transition-colors hover:text-[#4CAF50]" style={{ color: darkMode ? '#e5e7eb' : '#333333' }}>
-                {l.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((l) =>
+              l.children ? (
+                <div key={l.label} className="relative group">
+                  <a href={l.href} className="text-sm font-medium transition-colors hover:text-[#4CAF50] flex items-center gap-1" style={{ color: darkMode ? '#e5e7eb' : '#333333' }}>
+                    {l.label}
+                    <svg className="w-3.5 h-3.5 mt-0.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                  </a>
+                  <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="rounded-lg shadow-lg border py-1 min-w-[180px]" style={{ backgroundColor: darkMode ? '#1f2937' : '#ffffff', borderColor: darkMode ? '#374151' : '#e5e7eb' }}>
+                      {l.children.map((child) => (
+                        <a key={child.label} href={child.href} className="block px-4 py-2 text-sm transition-colors hover:bg-gray-50 hover:text-[#4CAF50]" style={{ color: darkMode ? '#e5e7eb' : '#333333' }}>
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <a key={l.label} href={l.href} className="text-sm font-medium transition-colors hover:text-[#4CAF50]" style={{ color: darkMode ? '#e5e7eb' : '#333333' }}>
+                  {l.label}
+                </a>
+              )
+            )}
           </nav>
 
           {/* Desktop CTA + dark mode + mobile hamburger */}
@@ -404,15 +448,27 @@ function Navbar({ scrolled, darkMode, toggleDarkMode }) {
       >
         <nav className="px-4 pb-5 pt-2 border-t space-y-1" style={{ borderColor: darkMode ? '#374151' : '#f3f4f6' }}>
           {NAV_LINKS.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="block px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-gray-50"
-              style={{ color: '#333333' }}
-              onClick={() => setMobileOpen(false)}
-            >
-              {l.label}
-            </a>
+            <div key={l.label}>
+              <a
+                href={l.href}
+                className="block px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-gray-50"
+                style={{ color: '#333333' }}
+                onClick={() => setMobileOpen(false)}
+              >
+                {l.label}
+              </a>
+              {l.children && l.children.map((child) => (
+                <a
+                  key={child.label}
+                  href={child.href}
+                  className="block pl-8 pr-4 py-2.5 rounded-lg text-sm transition-colors hover:bg-gray-50 hover:text-[#4CAF50]"
+                  style={{ color: '#555555' }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
           ))}
           <div className="pt-2 flex flex-col gap-2">
             <a
@@ -454,7 +510,25 @@ function Hero() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }} />
 
-      {/* Two-column content */}
+      {/* Hero banner image — positioned absolutely behind content, right half */}
+      <div
+        className="absolute inset-0 hidden lg:block"
+        style={{ zIndex: 2 }}
+      >
+        <img
+          src="/hero_banner.png"
+          alt=""
+          className="absolute right-[8%] top-[55%] -translate-y-1/2 w-[48%] h-auto max-w-none object-contain"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.9) 50%, black 65%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.9) 50%, black 65%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+            maskComposite: 'intersect',
+            WebkitMaskComposite: 'destination-in',
+          }}
+        />
+      </div>
+
+      {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-32 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         {/* Left — Text */}
         <div>
@@ -472,13 +546,13 @@ function Hero() {
               Bienvenidos a
             </span>
             <span className="block text-3xl sm:text-5xl lg:text-6xl text-white">
-              Universal Solar PR
+              Universal Solar
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg max-w-lg mb-8 leading-relaxed" style={{ color: 'rgba(255,255,255,0.70)' }}>
-            Fabricamos y distribuimos calentadores solares, tanques de agua y más aquí en Puerto Rico.
+            Calentadores solares, cisternas, filtros de agua, baterías portátiles.
           </p>
 
           {/* Two CTA buttons */}
@@ -521,10 +595,8 @@ function Hero() {
           </div>
         </div>
 
-        {/* Right — Puerto Rico Map */}
-        <div className="flex items-center justify-center">
-          <PuertoRicoMap />
-        </div>
+        {/* Right column — spacer for the absolutely-positioned banner */}
+        <div className="hidden lg:block" />
       </div>
 
       {/* Scroll cue */}
@@ -543,27 +615,27 @@ function FeatureStrip() {
       icon: <ShieldIcon className="w-7 h-7" />,
       title: 'Garantía Incluída',
       desc: 'Tu tranquilidad es nuestra prioridad. Garantía real y productos confiables, hechos para durar.',
-      variant: 'yellow',
+      variant: 'green',
     },
     {
       icon: <FlagIcon className="w-7 h-7" />,
       title: 'Hecho 100% en Puerto Rico',
       desc: 'Cada producto refleja nuestro compromiso con la excelencia. Manufacturamos con materiales de la más alta calidad.',
-      variant: 'blue',
+      variant: 'green',
     },
     {
       icon: <ChatIcon className="w-7 h-7" />,
       title: 'Servicio al Cliente Confiable',
       desc: 'Brindamos un servicio atento y confiable luego de la venta, disponible cuando más lo necesites.',
-      variant: 'yellow',
+      variant: 'green',
     },
   ]
 
-  const cardBg   = { yellow: '#FFCF33', blue: '#1F2AA8', white: '#ffffff' }
-  const iconBg   = { yellow: '#1a2a1a', blue: '#ffffff',  white: '#4CAF50' }
-  const iconClr  = { yellow: '#ffffff',  blue: '#1F2AA8', white: '#ffffff'  }
-  const titleClr = { yellow: '#1a2a1a', blue: '#ffffff',  white: '#1a2a1a' }
-  const descClr  = { yellow: '#1a2a1a', blue: 'rgba(255,255,255,0.85)', white: '#555555' }
+  const cardBg   = { yellow: '#FFCF33', blue: '#1F2AA8', green: '#4CAF50', white: '#ffffff' }
+  const iconBg   = { yellow: '#1a2a1a', blue: '#ffffff',  green: '#ffffff', white: '#4CAF50' }
+  const iconClr  = { yellow: '#ffffff',  blue: '#1F2AA8', green: '#4CAF50', white: '#ffffff'  }
+  const titleClr = { yellow: '#1a2a1a', blue: '#ffffff',  green: '#ffffff', white: '#1a2a1a' }
+  const descClr  = { yellow: '#1a2a1a', blue: 'rgba(255,255,255,0.85)', green: 'rgba(255,255,255,0.85)', white: '#555555' }
 
   return (
     <section className="bg-white py-16 px-4">
@@ -917,7 +989,7 @@ function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.facebook.com/universalsolarpr.net"
+                href="https://www.facebook.com/UniversalSolarProductsPR/about/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:opacity-80"
@@ -926,13 +998,22 @@ function Footer() {
                 <FacebookIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://instagram.com/universalsolarpr"
+                href="https://www.instagram.com/richard_colonpr/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:opacity-80"
                 style={{ backgroundColor: 'rgba(255,255,255,0.10)', color: 'rgba(255,255,255,0.65)' }}
               >
                 <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.youtube.com/@RichardColon---"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:opacity-80"
+                style={{ backgroundColor: 'rgba(255,255,255,0.10)', color: 'rgba(255,255,255,0.65)' }}
+              >
+                <YouTubeIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
